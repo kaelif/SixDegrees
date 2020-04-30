@@ -1,6 +1,4 @@
 # SixDegrees
-It's said that anyone in Hollywood can be connect to Kevin Bacon through six degrees of separation, where each degree of separation represents a movie that two people were involved in 
+It's said that anyone in Hollywood can be connect to Kevin Bacon through six degrees of separation, where each degree of separation represents a movie that two people were involved in.
 
-Purpose: when two names are inputted, the function returns the smallest number of steps needed to reach each other
-
-Still in beta: shortest_path function
+This program intakes an ID number of a two people. It uses a breadth-first search (queue frontier) through the people.csv databases to return the shortest path one could take to connect one celebrity to the other.
