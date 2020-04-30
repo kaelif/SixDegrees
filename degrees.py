@@ -94,22 +94,22 @@ def shortest_path(source, target):
 
     # TODO
 
-    self.num_explored = 0
+    num_explored = 0
 
-    start = Node(state=self.start, parent=None, action)
+    start = Node(state=start, parent=None, action=action)
     frontier = QueueFrontier()
     frontier.add(start)
 
-    self.explored = set()
+    explored = set()
 
     while True:
         if frontier.empty():
             raise Exception("no solution")
 
         node = frontier.remove()
-        self.num_explored += 1
+        num_explored += 1
 
-        if node.state == self.goal:
+        if node.state == goal:
             actions = []
             cells = []
 
@@ -119,13 +119,13 @@ def shortest_path(source, target):
                 node = node.parent
             actions.reverse()
             cells.reverse()
-            self.solution = (actions, cells)
+            solution = (actions, cells)
             return
 
-        self.explored.add(node.state)
+        explored.add(node.state)
 
-        for action, state in self.neighbors(node.state):
-            if not frontier.contains_state(state) and state not in self.explored
+        for action, state in neighbors(node.state):
+            if not (frontier.contains_state(state) and state not in explored):
                 child = Node(state=state, parent=node, action=action)
                 frontier.add(child)
 
